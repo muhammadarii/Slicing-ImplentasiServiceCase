@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import ChartOne from "./Dashboard/Chart/ChartOne";
 import ChartTwo from "./Dashboard/Chart/ChartTwo";
 import ChartThree from "./Dashboard/Chart/ChartThree";
@@ -6,9 +7,28 @@ import ChartFour from "./Dashboard/Chart/ChartFour";
 import ChartFive from "./Dashboard/Chart/ChartFive";
 import ChartSix from "./Dashboard/Chart/ChartSix";
 import ChartSeven from "./Dashboard/Chart/ChartSeven";
-// import ChartOne from "./Chart/ChartOne";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import Cookies from "js-cookie";
 
 const ContentOne = () => {
+  const [dashboardLogin, setDashboardLogin] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setDashboardLogin(decoded.dashboardLogin);
+      } catch (error) {
+        navigate("/login");
+      }
+    } else {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div className="container mx-auto">
       <div className=" md:p-4">

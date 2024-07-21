@@ -32,7 +32,7 @@ const LoginPage = () => {
       Cookies.set("refreshToken", refreshToken, { expires: 1 }); // Simpan refreshToken selama 1 hari
 
       // Redirect ke halaman setelah login sukses
-      navigate("/datasource");
+      navigate("/dashboard");
     } catch (error) {
       if (error.response) {
         setMsg("Invalid username or password");

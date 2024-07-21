@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/admin/Navbar";
 import { FiSearch } from "react-icons/fi";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -25,6 +25,8 @@ const UserManagement = () => {
   });
   const [isOpenAction, setIsOpenAction] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(new Date());
+  const [editMode, setEditMode] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState(null);
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -118,6 +120,27 @@ const UserManagement = () => {
 
   const handleAddUser = () => {
     setShowForm(true);
+    setEditMode(false);
+    setNewUser({
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      gender: "",
+    });
+  };
+
+  const handleEditUser = (user) => {
+    setShowForm(true);
+    setEditMode(true);
+    setCurrentUserId(user.id);
+    setNewUser({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      email: user.email,
+      gender: user.gender,
+    });
   };
 
   const handleFormChange = (e) => {
@@ -127,7 +150,11 @@ const UserManagement = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    await addUser(newUser);
+    if (editMode) {
+      await editUser(currentUserId, newUser);
+    } else {
+      await addUser(newUser);
+    }
   };
 
   const addUser = async (user) => {
@@ -135,6 +162,28 @@ const UserManagement = () => {
       const { data } = await axios.post("users/add", user);
       setUsers((prevUsers) => [...prevUsers, data]);
       setFilteredUsers((prevFilteredUsers) => [...prevFilteredUsers, data]);
+      setShowForm(false);
+      setNewUser({
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        gender: "",
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const editUser = async (userId, user) => {
+    try {
+      const { data } = await axios.put(`users/${userId}`, user);
+      setUsers((prevUsers) =>
+        prevUsers.map((u) => (u.id === userId ? data : u))
+      );
+      setFilteredUsers((prevFilteredUsers) =>
+        prevFilteredUsers.map((u) => (u.id === userId ? data : u))
+      );
       setShowForm(false);
       setNewUser({
         firstName: "",
@@ -180,10 +229,10 @@ const UserManagement = () => {
       <div className="container mx-auto mt-20 px-4">
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <div className="w-full lg:w-2/3">
-            <h1 className="text-lg text-center md:text-2xl lg:text-left font-bold my-6">
+            <h1 className="text-lg text-center md:text-2xl lg:text-left font-extrabold my-6">
               User Management
             </h1>
-            <h1>Welcome Back: {username}</h1>
+            <h1 className="font-bold mb-4">Welcome Back: {username}</h1>
             <div className="flex flex-row justify-between md:flex-row md:justify-between">
               <div className="relative mb-4 md:mb-0">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer">
@@ -202,7 +251,7 @@ const UserManagement = () => {
                 />
               </div>
               <button
-                className="bg-blue-500 text-sm text-white font-bold px-2 md:py-2 md:px-4 md:text-base md:-mr-0 lg:-mr-[500px] hover:bg-blue-700 rounded-lg"
+                className="bg-blue-500 text-sm text-white font-bold px-2 py-10 md:py-2 md:px-4 md:text-base md:-mr-0 lg:-mr-[500px] hover:bg-blue-700 rounded-lg"
                 onClick={handleAddUser}
               >
                 Add User
@@ -269,7 +318,10 @@ const UserManagement = () => {
                       <div className="relative">
                         {isOpenAction === user.id && (
                           <div className="absolute flex flex-col gap-1 p-3 bg-black rounded-xl bg-opacity-50 backdrop-blur-sm">
-                            <button className="bg-blue-500 text-white text-sm px-4 rounded-2xl">
+                            <button
+                              className="bg-blue-500 text-white text-sm px-4 rounded-2xl"
+                              onClick={() => handleEditUser(user)}
+                            >
                               Edit
                             </button>
                             <button
