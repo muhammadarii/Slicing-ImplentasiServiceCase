@@ -11,8 +11,16 @@ import {
   FiPocket,
 } from "react-icons/fi";
 import Logo from "../../img/Logo2.png";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? "font-extrabold"
+      : "text-white text-md hover:font-extrabold";
+  };
+
   return (
     <>
       <div className=" w-25 md:w-64 bg-gray-800 text-gray-100 h-lvh">
@@ -24,9 +32,11 @@ const Sidebar = () => {
           />
         </div>
         <div className="mt-10">
-          <a
-            href="/dashboard"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          <Link
+            to="/dashboard"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass(
+              "/dashboard"
+            )}`}
           >
             <svg
               width="26"
@@ -72,80 +82,82 @@ const Sidebar = () => {
               </defs>
             </svg>
             <span className="mx-3 text-sm">Dashboard</span>
-          </a>
+          </Link>
           <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">DATA</p>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiSlack className="h-6 w-6" />
             <span className="mx-3 text-sm">Visualization</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiArchive className="h-6 w-6" />
             <span className="mx-3 text-sm">Case</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiServer className="h-6 w-6" />
             <span className="mx-3 text-sm">Data Set</span>
-          </a>
-          <a
-            href="/datasource"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="/datasource"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass(
+              "/datasource"
+            )}`}
           >
             <FiDatabase className="h-6 w-6" />
             <span className="mx-3 text-sm">Data Source</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiWifi className="h-6 w-6" />
             <span className="mx-3 text-sm">Connection</span>
-          </a>
+          </Link>
           <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">
             ASSETS
           </p>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiFigma className="h-6 w-6" />
             <span className="mx-3 text-sm">Icon</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiImage className="h-6 w-6" />
             <span className="mx-3 text-sm">Image</span>
-          </a>
+          </Link>
           <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">
             AUTHORIZATION
           </p>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiUser className="h-6 w-6" />
             <span className="mx-3 text-sm">Account</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <FiPocket className="h-6 w-6" />
             <span className="mx-3 text-sm">Role</span>
-          </a>
-          <a
-            href="#"
-            className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
+          </Link>
+          <Link
+            to="#"
+            className={`flex items-center mt-4 py-2 px-6 ${getLinkClass("#")}`}
           >
             <svg
               width="26"
@@ -177,7 +189,7 @@ const Sidebar = () => {
               />
             </svg>
             <span className="mx-3 text-sm">Workspace</span>
-          </a>
+          </Link>
         </div>
       </div>
     </>

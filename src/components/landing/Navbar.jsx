@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import Logo from "../../img/Logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const getLinkClass = (path) => {
+    return location.pathname === path
+      ? "font-extrabold"
+      : "text-black font-semibold hover:font-extrabold";
   };
 
   return (
@@ -44,42 +51,36 @@ const Navbar = () => {
           </button>
         </div>
         <div className="hidden lg:block space-x-4">
-          <a
-            href="/"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
-          >
+          <Link to="/" className={`px-3 py-2 ${getLinkClass("/")}`}>
             Home
-          </a>
-          <a
-            href="/product"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/product"
+            className={`px-3 py-2 ${getLinkClass("/product")}`}
           >
             Product
-          </a>
-          <a
-            href="/blog"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
-          >
+          </Link>
+          <Link to="/blog" className={`px-3 py-2 ${getLinkClass("/blog")}`}>
             Blog
-          </a>
-          <a
-            href="/pricing"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/pricing"
+            className={`px-3 py-2 ${getLinkClass("/pricing")}`}
           >
             Pricing
-          </a>
-          <a
-            href="/contact"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/contact"
+            className={`px-3 py-2 ${getLinkClass("/contact")}`}
           >
             Contact
-          </a>
-          <a
-            href="/aboutus"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/aboutus"
+            className={`px-3 py-2 ${getLinkClass("/aboutus")}`}
           >
             About Us
-          </a>
+          </Link>
         </div>
         <div className="hidden lg:block space-x-4">
           <Link to="/login">
@@ -87,55 +88,49 @@ const Navbar = () => {
               Sign In
             </button>
           </Link>
-          <button className="text-blue-500 px-8 py-2 border-2 border-blue-500 rounded-full font-bold hover:bg-blue-500 hover:text-white ">
+          <button className="text-blue-500 px-8 py-2 border-2 border-blue-500 rounded-full font-bold hover:bg-blue-500 hover:text-white">
             Sign Up
           </button>
         </div>
       </div>
       {isOpen && (
-        <div className=" bg-white bg-opacity-50 backdrop-blur-sm w-full flex flex-col items-center py-4 space-y-2 shadow-md">
-          <a
-            href="/"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
-          >
+        <div className="bg-white bg-opacity-50 backdrop-blur-sm w-full flex flex-col items-center py-4 space-y-2 shadow-md">
+          <Link to="/" className={`px-3 py-2 ${getLinkClass("/")}`}>
             Home
-          </a>
-          <a
-            href="/product"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/product"
+            className={`px-3 py-2 ${getLinkClass("/product")}`}
           >
             Product
-          </a>
-          <a
-            href="/blog"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
-          >
+          </Link>
+          <Link to="/blog" className={`px-3 py-2 ${getLinkClass("/blog")}`}>
             Blog
-          </a>
-          <a
-            href="/pricing"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/pricing"
+            className={`px-3 py-2 ${getLinkClass("/pricing")}`}
           >
             Pricing
-          </a>
-          <a
-            href="/contact"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/contact"
+            className={`px-3 py-2 ${getLinkClass("/contact")}`}
           >
             Contact
-          </a>
-          <a
-            href="/aboutus"
-            className="text-black px-3 py-2 font-semibold hover:font-extrabold"
+          </Link>
+          <Link
+            to="/aboutus"
+            className={`px-3 py-2 ${getLinkClass("/aboutus")}`}
           >
             About Us
-          </a>
+          </Link>
           <Link to="/login">
             <button className="text-black font-bold hover:text-blue-500 hover:border-2 hover:border-blue-500 hover:rounded-full px-8 py-2">
               Sign In
             </button>
           </Link>
-          <button className="text-blue-500 px-8 py-2 border-2 border-blue-500 rounded-full font-bold hover:bg-blue-500 hover:text-white ">
+          <button className="text-blue-500 px-8 py-2 border-2 border-blue-500 rounded-full font-bold hover:bg-blue-500 hover:text-white">
             Sign Up
           </button>
         </div>
