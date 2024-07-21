@@ -14,8 +14,8 @@ const ContentFive = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-row justify-center">
-        <div className="w-[330px] h-[720px] overflow-hidden shadow-lg m-4 border-2 rounded-2xl hover:border-2 hover:border-blue-500">
+      <div className="flex flex-col sm:flex-row justify-center">
+        <div className="w-[330px] h-[720px] overflow-hidden shadow-lg m-8 border-2 rounded-2xl hover:border-2 hover:border-blue-500">
           <div className="flex justify-center mt-12">
             <img
               src={vector4}
@@ -50,7 +50,7 @@ const ContentFive = () => {
             </div>
           </div>
         </div>
-        <div className="w-[330px] h-[720px] overflow-hidden shadow-lg m-4 border-2 rounded-2xl hover:border-2 hover:border-blue-500">
+        <div className="w-[330px] h-[720px] overflow-hidden shadow-lg m-8 border-2 rounded-2xl hover:border-2 hover:border-blue-500">
           <div className="flex justify-center mt-12">
             <img
               src={vector4}

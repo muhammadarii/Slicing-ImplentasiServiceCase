@@ -4,8 +4,8 @@ import NotFound from "../../../img/NotFound/NotFound.png";
 const Content = () => {
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-2">
-        <div className="flex items-center min-h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="flex ml-5 -mt-[150px] md:mt-[10px] items-center min-h-screen">
           <div>
             <p className="text-3xl font-semibold">Ooops!</p>
             <p className="text-3xl font-semibold">Page Not Found</p>
@@ -23,7 +23,7 @@ const Content = () => {
           <img
             src={NotFound}
             alt="NotFound"
-            className="w-[602.39px] h-[400px] mt-[150px]"
+            className="-mt-[200px] md:w-[602.39px] md:h-[400px] md:mt-[150px]"
           />
         </div>
       </div>

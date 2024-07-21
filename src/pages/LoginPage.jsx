@@ -43,26 +43,38 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="relative flex h-screen">
-      <div className="absolute top-0 left-0 m-10">
-        <img src={logo} alt="" className="w-auto h-auto" />
+    <div className="relative flex flex-col md:flex-row h-screen">
+      <div className="absolute hidden md:block lg:block top-0 left-0 m-4 md:m-10">
+        <img
+          src={logo}
+          alt="logo"
+          className="w-24 h-auto md:w-auto md:h-auto"
+        />
       </div>
-      <div className="w-1/3 bg-cover bg-center bg-slate-200 flex flex-col items-center justify-center">
-        <img src={image1} className="object-center" alt="" />
-        <h1 className="font-bold text-3xl mt-20">Services</h1>
-        <p className="w-96 text-center">
-          An expert team help you to analyze your polticalt power. An expret
-          team .
+      <div className="w-full hidden md:flex md:w-1/3 bg-cover bg-center bg-slate-200 lg:flex flex-col items-center justify-center">
+        <img
+          src={image1}
+          className="object-center w-3/4 md:w-auto"
+          alt="service"
+        />
+        <h1 className="font-bold text-2xl md:text-3xl mt-10 md:mt-20">
+          Services
+        </h1>
+        <p className="text-center w-3/4 md:w-auto mt-4 md:mt-0">
+          An expert team help you to analyze your political power. An expert
+          team.
         </p>
       </div>
-      <div className="flex justify-center min-h-screen items-center flex-col w-3/4">
-        <form onSubmit={Auth}>
+      <div className="flex flex-col mt-10 justify-center items-center w-full md:w-2/3 p-4 md:-mt-10 md:p-0 lg:-mt-10">
+        <form onSubmit={Auth} className="w-full max-w-md">
           {msg && <p className="text-red-500">{msg}</p>}
-          <h1 className="font-bold text-3xl">Welcome to Login ipsum</h1>
-          <div className="flex flex-row">
-            <p>Dont' have an account? </p>
+          <h1 className="font-bold text-2xl md:text-3xl">
+            Welcome to Login Ipsum
+          </h1>
+          <div className="flex flex-row mt-2">
+            <p>Don't have an account? </p>
             <a
-              className="mt-0.5 ml-1 font-bold text-sm text-blue-500 hover:text-blue-800"
+              className="ml-1 font-bold text-sm text-blue-500 hover:text-blue-800"
               href="/register"
             >
               Sign Up
@@ -92,8 +104,8 @@ const LoginPage = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
-          <div className="flex gap-2 mt-3">
-            <input type="checkbox" />
+          <div className="flex items-center mt-3">
+            <input type="checkbox" className="mr-2" />
             <p className="text-xs text-gray-400 font-bold">Remember Me</p>
           </div>
           <div className="mt-6">

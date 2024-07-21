@@ -6,19 +6,19 @@ import Twitter from "../../img/footer/Twitter.png";
 
 const Footer = () => {
   return (
-    <footer className="container mx-auto my-40">
-      <div className="flex justify-center">
-        <div className="bg-[#2161D5] w-[1140px] h-[233px] rounded-lg">
-          <div className="relative  ">
-            <div className="absolute top-[60px] left-16">
-              <h1 className=" text-white font-bold text-3xl w-[300px]">
+    <footer className="container mx-auto px-4 my-20">
+      <div className="flex justify-center mb-16">
+        <div className="bg-[#2161D5] w-full max-w-6xl h-auto py-10 rounded-lg">
+          <div className="relative flex flex-col md:flex-row items-center md:items-start px-8 md:px-16">
+            <div className="md:mr-auto md:py-6 text-center md:text-left">
+              <h1 className="text-white font-bold text-3xl md:w-[300px]">
                 Subscribe Now for Get Special Features!
               </h1>
               <p className="text-white py-4">
                 Let's subscribe with us and find the fun.
               </p>
             </div>
-            <div className="absolute top-[90px] right-20">
+            <div className="mt-4 md:mt-0">
               <button className="text-[#2161D5] bg-white font-bold tracking-tighter px-10 py-3 rounded-lg">
                 Subscribe Now
               </button>
@@ -26,23 +26,27 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center my-40">
-        <div className="grid grid-cols-5 w-[1140px]">
-          <div className="col-span-2">
+      <div className="flex justify-center mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 w-full max-w-6xl">
+          <div className="md:col-span-2">
             <div>
-              <img src={Frame1} alt="Frame1" />
-              <p className="w-[300px] text-sm my-4">
-                Geolabs is a private virtual network that has unique features
-                and has high security.
-              </p>
-              <div className="flex -ml-7">
-                <div className="grid grid-cols-3">
+              <div className="flex justify-center md:flex md:justify-start lg:flex lg:justify-start">
+                <img src={Frame1} alt="Frame1" />
+              </div>
+              <div className="flex justify-center text-center md:text-left">
+                <p className="text-sm my-4">
+                  Geolabs is a private virtual network that has unique features
+                  and has high security.
+                </p>
+              </div>
+              <div className="flex justify-center md:justify-center lg:justify-start">
+                <div className="flex space-x-4">
                   <img src={Facebook} alt="Facebook" />
                   <img src={Instagram} alt="Instagram" />
                   <img src={Twitter} alt="Twitter" />
                 </div>
               </div>
-              <p className="text-md text-[#4F5665]">©2020EBDESK</p>
+              <p className="text-md text-[#4F5665] mt-4">©2020EBDESK</p>
             </div>
           </div>
           <div>

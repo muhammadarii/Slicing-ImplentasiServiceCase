@@ -10,18 +10,14 @@ import {
   FiUser,
   FiPocket,
 } from "react-icons/fi";
-import Logo from "../../img/Logo2.png";
+import Logo3 from "../../img/Logo3.png";
 
-const Sidebar = () => {
+const Sidebar2 = () => {
   return (
     <>
-      <div className=" w-25 md:w-64 bg-gray-800 text-gray-100 h-lvh">
+      <div className=" w-[80px] bg-gray-800 text-gray-100 h-lvh">
         <div className="flex items-center justify-center mt-10">
-          <img
-            src={Logo}
-            alt=""
-            className="md:-ml-[80px] lg:-ml-[80px] mt-[19px]"
-          />
+          <img src={Logo3} alt="" className=" -ml-1 mt-[19px]" />
         </div>
         <div className="mt-10">
           <a
@@ -71,77 +67,63 @@ const Sidebar = () => {
                 </clipPath>
               </defs>
             </svg>
-            <span className="mx-3 text-sm">Dashboard</span>
           </a>
-          <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">DATA</p>
+          <br />
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiSlack className="h-6 w-6" />
-            <span className="mx-3 text-sm">Visualization</span>
           </a>
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiArchive className="h-6 w-6" />
-            <span className="mx-3 text-sm">Case</span>
           </a>
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiServer className="h-6 w-6" />
-            <span className="mx-3 text-sm">Data Set</span>
           </a>
           <a
             href="/datasource"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiDatabase className="h-6 w-6" />
-            <span className="mx-3 text-sm">Data Source</span>
           </a>
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiWifi className="h-6 w-6" />
-            <span className="mx-3 text-sm">Connection</span>
           </a>
-          <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">
-            ASSETS
-          </p>
+          <br />
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiFigma className="h-6 w-6" />
-            <span className="mx-3 text-sm">Icon</span>
           </a>
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiImage className="h-6 w-6" />
-            <span className="mx-3 text-sm">Image</span>
           </a>
-          <p className="mt-4 px-6 text-gray-400 text-xs font-semibold">
-            AUTHORIZATION
-          </p>
+          <br />
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiUser className="h-6 w-6" />
-            <span className="mx-3 text-sm">Account</span>
           </a>
           <a
             href="#"
             className="flex items-center mt-4 py-2 px-6 text-gray-100 hover:bg-gray-700 hover:text-white"
           >
             <FiPocket className="h-6 w-6" />
-            <span className="mx-3 text-sm">Role</span>
           </a>
           <a
             href="#"
@@ -176,7 +158,6 @@ const Sidebar = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <span className="mx-3 text-sm">Workspace</span>
           </a>
         </div>
       </div>
@@ -184,4 +165,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar2;
