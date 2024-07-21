@@ -18,8 +18,8 @@ const Footer = () => {
                 Let's subscribe with us and find the fun.
               </p>
             </div>
-            <div className="mt-4 md:mt-0">
-              <button className="text-[#2161D5] bg-white font-bold tracking-tighter px-10 py-3 rounded-lg">
+            <div className="mt-4">
+              <button className="text-[#2161D5] bg-white font-bold tracking-tighter px-10 py-3 rounded-lg md:mt-10">
                 Subscribe Now
               </button>
             </div>
